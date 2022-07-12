@@ -1,0 +1,38 @@
+{
+  "name": "electron-tutorial-js-app",
+  "version": "0.1.0",
+  "description": "electron JS Getting Started Tutorial JS desktop app",
+  "main": "src/app/main.js",
+  "scripts": {
+    "standard": "standard --fix src/app/**/*.js",
+    "lint:js": "npm run standard",
+    "lint": "npm run lint:js",
+    "test": "exit 0",
+    "electron": "electron .",
+    "prestart": "npm run lint",
+    "start": "npm run electron"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/percebus/electron-tutorial-js-app.git"
+  },
+  "keywords": [
+    "electron",
+    "js",
+    "nodejs",
+    "JavaScript",
+    "node",
+    "desktop",
+    "app"
+  ],
+  "author": "percebus",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/percebus/electron-tutorial-js-app/issues"
+  },
+  "homepage": "https://github.com/percebus/electron-tutorial-js-app#readme",
+  "devDependencies": {
+    "electron": "^19.0.8",
+    "standard": "latest"
+  }
+}
