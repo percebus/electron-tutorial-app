@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
 const path = require('path')
 
 console.info('main.js')
@@ -16,6 +16,19 @@ const newBrowserWindow = () => {
 
   // Open the DevTools.
   // oBrowserWindow.webContents.openDevTools()
+
+  ipcMain.handle('dark-mode:toggle', () => {
+    if (nativeTheme.shouldUseDarkColors) {
+      nativeTheme.themeSource = 'light'
+    } else {
+      nativeTheme.themeSource = 'dark'
+    }
+    return nativeTheme.shouldUseDarkColors
+  })
+
+  ipcMain.handle('dark-mode:system', () => {
+    nativeTheme.themeSource = 'system'
+  })
 }
 
 app
@@ -31,7 +44,7 @@ app
        *  when the dock icon is clicked and there are no other windows open.
        */
       const allWindows = BrowserWindow.getAllWindows()
-      if (!allWindows) {
+      if (!allWindows.length) {
         newBrowserWindow()
       }
     })
