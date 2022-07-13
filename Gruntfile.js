@@ -18,9 +18,13 @@ module.exports = (grunt) => {
       }
     },
     concat: {
-      build: {
+      render: {
         src: ['./src/app/components/**/*/render.js'],
         dest: './build/render.js'
+      },
+      style: {
+        src: ['./src/app/components/**/*.css'],
+        dest: './build/style.css'
       }
     }
   })
