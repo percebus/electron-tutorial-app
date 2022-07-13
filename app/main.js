@@ -5,7 +5,7 @@
   const path = require('path')
 
   const menu = require('./examples/menu/main').menu
-  const darkMode = require('./examples/darkMode/main')
+  const darkMode = require('./examples/dark-mode/main')
 
   console.info('main.js: loading...')
 

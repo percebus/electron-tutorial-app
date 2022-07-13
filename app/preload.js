@@ -2,7 +2,7 @@
   'use strict'
 
   const versions = require('./examples/versions/preload')
-  const darkMode = require('./examples/darkMode/preload')
+  const darkMode = require('./examples/dark-mode/preload')
 
   console.info('preload.js: loading...')
 
