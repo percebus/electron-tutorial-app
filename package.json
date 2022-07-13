@@ -27,7 +27,10 @@
     "start": "npm run electron-forge:start",
     "package": "npm run electron-forge:package",
     "make": "npm run electron-forge:make",
-    "wdio": "wdio run wdio.conf.js"
+    "wdio": "wdio run wdio.conf.js",
+    "playwright:test": "playwright test",
+    "prevalidate": "npm run lint",
+    "validate": "npm run playwright:test"
   },
   "standard": {
     "globals": [

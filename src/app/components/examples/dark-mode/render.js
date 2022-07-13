@@ -1,3 +1,5 @@
+// dark-mode/render.js
+
 document
   .getElementById('toggle-dark-mode')
   .addEventListener('click', async () => {

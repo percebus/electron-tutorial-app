@@ -21,7 +21,7 @@ exports.config = {
   // will be called from there.
   //
   specs: [
-    './test/specs/**/*.js'
+    './__tests__/webdriver/**/*.e2e.spec.js'
   ],
   // Patterns to exclude.
   exclude: [
