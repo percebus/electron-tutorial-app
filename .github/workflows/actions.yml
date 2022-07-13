@@ -1,0 +1,41 @@
+name: Continuous Integration
+on: 
+  push:
+  schedule:
+    - cron: '* 0 * * *'
+
+jobs:
+
+  Verify:
+    strategy:
+      max-parallel: 6
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+        node: [16, 18]
+    runs-on: ${{ matrix.os }}
+    name: node:${{ matrix.node }}@${{ matrix.os }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: ls
+        run: ls
+      - name: setup
+        run: npm run setup:ci --if-present
+      - name: npm install
+        run: npm ci
+      - name: npm audit
+        run: npm audit
+        continue-on-error: true
+      - name: lint
+        run: npm run lint
+      - name: make
+        run: npm run make
+      - name: out.zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: out
+          path: out

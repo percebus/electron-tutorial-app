@@ -4,8 +4,10 @@
   "description": "electron JS Getting Started Tutorial JS desktop app",
   "main": "src/app/main.js",
   "scripts": {
-    "npm:install:global": "npm install --location=global yarn @electron-forge/cli",
-    "setup": "npm run npm:install:global",
+    "npm:install:global:ci": "npm install --location=global @electron-forge/cli",
+    "npm:install:global:all": "npm install --location=global @electron-forge/cli yarn",
+    "setup": "npm run npm:install:global:all",
+    "setup:ci": "npm run npm:install:global:ci",
     "standard": "standard --fix src/app/**/*.js",
     "lint:js": "npm run standard",
     "lint": "npm run lint:js",
