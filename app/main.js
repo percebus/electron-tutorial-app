@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
 const path = require('path')
 
-console.info('main.js')
+console.info('main.js: loading...')
 
 const newBrowserWindow = () => {
   const oBrowserWindow = new BrowserWindow({
@@ -12,7 +12,8 @@ const newBrowserWindow = () => {
     }
   })
 
-  oBrowserWindow.loadFile('src/index.html')
+  const htmlPlatformPath = path.join(__dirname, 'index.html')
+  oBrowserWindow.loadFile(htmlPlatformPath)
 
   // Open the DevTools.
   // oBrowserWindow.webContents.openDevTools()
@@ -23,6 +24,7 @@ const newBrowserWindow = () => {
     } else {
       nativeTheme.themeSource = 'dark'
     }
+
     return nativeTheme.shouldUseDarkColors
   })
 
