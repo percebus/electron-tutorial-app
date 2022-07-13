@@ -1,7 +1,13 @@
-const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 const path = require('path')
 
+const menu = require('./examples/menu/main').menu
+const darkMode = require('./examples/darkMode/main')
+
 console.info('main.js: loading...')
+
+// NOTE: overrides default menu
+Menu.setApplicationMenu(menu)
 
 const newBrowserWindow = () => {
   const oBrowserWindow = new BrowserWindow({
@@ -18,19 +24,7 @@ const newBrowserWindow = () => {
   // Open the DevTools.
   // oBrowserWindow.webContents.openDevTools()
 
-  ipcMain.handle('dark-mode:toggle', () => {
-    if (nativeTheme.shouldUseDarkColors) {
-      nativeTheme.themeSource = 'light'
-    } else {
-      nativeTheme.themeSource = 'dark'
-    }
-
-    return nativeTheme.shouldUseDarkColors
-  })
-
-  ipcMain.handle('dark-mode:system', () => {
-    nativeTheme.themeSource = 'system'
-  })
+  darkMode.setup()
 }
 
 app
