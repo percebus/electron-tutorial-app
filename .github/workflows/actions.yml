@@ -35,6 +35,10 @@ jobs:
 
       - name: lint
         run: npm run lint
+      - name: build
+        run: npm run grunt:build
+      - name: electron-forge package
+        run: npx electron-forge package
       - name: electron-forge make
         run: npx electron-forge make
 

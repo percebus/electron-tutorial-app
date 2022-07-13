@@ -6,9 +6,9 @@
   const { app, BrowserWindow } = require('electron')
   const path = require('path')
 
-  const menu = require('./examples/menu/main')
-  const darkMode = require('./examples/dark-mode/main')
-  const notification = require('./examples/notification2/main')
+  const menu = require('./components/examples/menu/main')
+  const darkMode = require('./components/examples/dark-mode/main')
+  const notification = require('./components/examples/notification2/main')
 
   menu.setup()
 

@@ -1,8 +1,8 @@
 (() => {
   'use strict'
 
-  const versions = require('./examples/versions/preload')
-  const darkMode = require('./examples/dark-mode/preload')
+  const versions = require('./components/examples/versions/preload')
+  const darkMode = require('./components/examples/dark-mode/preload')
 
   console.info('preload.js: loading...')
 

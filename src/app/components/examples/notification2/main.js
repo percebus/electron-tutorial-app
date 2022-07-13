@@ -1,9 +1,9 @@
 (() => {
   'use strict'
 
-  const { Notification } = require('electron')
-
   console.info('examples/menu/main.js: loading...')
+
+  const { Notification } = require('electron')
 
   function newNotification () {
     console.log('examples/notification2/main newNotification()')

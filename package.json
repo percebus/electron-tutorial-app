@@ -2,30 +2,33 @@
   "name": "electron-tutorial-js-app",
   "version": "0.1.0",
   "description": "electron JS Getting Started Tutorial JS desktop app",
-  "main": "app/main.js",
+  "main": "build/main.js",
   "scripts": {
-    "npm:install:global:ci": "npm install --location=global @electron-forge/cli",
-    "npm:install:global:all": "npm install --location=global @electron-forge/cli yarn",
+    "npm:install:global:ci": "npm install --location=global grunt-cli @electron-forge/cli",
+    "npm:install:global:all": "npm install --location=global grunt-cli @electron-forge/cli yarn",
     "setup": "npm run npm:install:global:all",
     "setup:ci": "npm run npm:install:global:ci",
-    "standard": "standard --fix app/**/*.js",
+    "standard": "standard --fix *.js src/app/**/*.js",
     "lint:js": "npm run standard",
     "lint": "npm run lint:js",
     "test": "exit 0",
+    "grunt": "grunt --color --verbose",
+    "grunt:build": "npm run grunt -- build",
+    "prebuild": "npm run lint",
+    "build": "npm run grunt:build",
     "electron": "electron .",
-    "preelectron-forge": "npm run lint",
+    "preelectron-forge": "npm run build",
     "electron-forge": "electron-forge",
     "electron-forge:start": "npm run electron-forge -- start",
     "electron-forge:package": "npm run electron-forge -- package",
     "electron-forge:make": "npm run electron-forge -- make",
-    "prestart": "npm run lint",
     "start": "npm run electron-forge:start",
     "package": "npm run electron-forge:package",
     "make": "npm run electron-forge:make"
   },
   "standard": {
     "globals": [
-      "arguments", 
+      "arguments",
       "Notification"
     ]
   },
@@ -55,6 +58,11 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.64",
     "@electron-forge/maker-zip": "^6.0.0-beta.64",
     "electron": "^19.0.8",
+    "grunt": "^1.5.3",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-concat": "^2.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "load-grunt-tasks": "^5.1.0",
     "standard": "latest"
   },
   "dependencies": {
