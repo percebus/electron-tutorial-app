@@ -21,10 +21,9 @@
 
   function setupNotification () { // notification
     const oNotification = new Notification(
-      'Title', {
-        body: 'Notification from the Renderer process. Click to log to console.'
-      }
-    )
+      'render.js Notification', {
+        body: 'examples/notification/render.js: Click to log to console.'
+      })
 
     oNotification.onclick = () => {
       console.log('notification.click()')

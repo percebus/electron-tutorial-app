@@ -8,10 +8,13 @@
 
   const menu = require('./examples/menu/main')
   const darkMode = require('./examples/dark-mode/main')
+  const notification = require('./examples/notification2/main')
 
   menu.setup()
 
   const newBrowserWindow = () => {
+    console.log('newBrowserWindow()')
+
     const oBrowserWindow = new BrowserWindow({
       width: 800,
       height: 600,
@@ -31,22 +34,23 @@
 
   app
     .whenReady()
+    .then(newBrowserWindow)
     .then(() => {
-      console.log('app.whenReady().then()')
-      newBrowserWindow()
-
-      app.on('activate', () => {
-        console.log('app.o("active")')
-
-        /* On macOS it's common to re-create a window in the app
-       *  when the dock icon is clicked and there are no other windows open.
-       */
-        const allWindows = BrowserWindow.getAllWindows()
-        if (!allWindows.length) {
-          newBrowserWindow()
-        }
-      })
+      const oNotification = notification.create()
+      oNotification.show()
     })
+
+  app.on('activate', () => {
+    console.log('app.o("active")')
+
+    /* On macOS it's common to re-create a window in the app
+    *  when the dock icon is clicked and there are no other windows open.
+    */
+    const allWindows = BrowserWindow.getAllWindows()
+    if (!allWindows.length) {
+      newBrowserWindow()
+    }
+  })
 
   app.on('window-all-closed', () => {
     console.log('app.on("window-all-closed")')
