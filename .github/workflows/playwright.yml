@@ -1,4 +1,4 @@
-name: Playwright
+name: playwright
 on:
   push:
     branches: [ main, master ]
@@ -21,7 +21,7 @@ jobs:
     - name: playwright install
       run: npx playwright install --with-deps
     - name: playwright test
-      run: npx playwright test
+      run: npx playwright test __tests__/playwright/dev
     - uses: actions/upload-artifact@v2
       if: always()
       with:

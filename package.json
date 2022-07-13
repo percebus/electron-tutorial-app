@@ -27,13 +27,14 @@
     "package": "npm run electron-forge:package",
     "make": "npm run electron-forge:make",
     "wdio": "wdio run wdio.conf.js",
-    "preplaywright": "npm run build",
     "playwright": "playwright",
     "playwright:test": "npm run playwright -- test",
+    "preplaywright:test:app": "npm run build",
     "playwright:test:app": "npm run playwright:test -- __tests__/playwright/app",
-    "playwright:test:headed": "npm run playwright:test -- --headed",
+    "playwright:test:sites": "npm run playwright:test -- __tests__/playwright/dev",
+    "playwright:test:sites:headed": "npm run playwright:test:sites -- --headed",
     "test": "npm run playwright:test:app",
-    "validate": "npm run playwright:test:headed"
+    "validate": "npm run playwright:test:sites:headed"
   },
   "standard": {
     "globals": [
