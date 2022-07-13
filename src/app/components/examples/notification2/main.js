@@ -5,13 +5,9 @@
 
   const { Notification } = require('electron')
 
-  function newNotification () {
+  function newNotification (options) {
     console.log('examples/notification2/main newNotification()')
-
-    return new Notification({
-      title: 'main.js Notification',
-      body: 'examples/notification2/main.js'
-    })
+    return new Notification(options)
   }
 
   exports.create = newNotification

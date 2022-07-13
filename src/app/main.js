@@ -36,7 +36,11 @@
     .whenReady()
     .then(newBrowserWindow)
     .then(() => {
-      const oNotification = notification.create()
+      const oNotification = notification.create({
+        title: 'main.js Notification',
+        body: 'examples/notification2/main.js'
+      })
+
       oNotification.show()
     })
 
@@ -44,8 +48,8 @@
     console.log('app.o("active")')
 
     /* On macOS it's common to re-create a window in the app
-    *  when the dock icon is clicked and there are no other windows open.
-    */
+     * when the dock icon is clicked and there are no other windows open.
+     */
     const allWindows = BrowserWindow.getAllWindows()
     if (!allWindows.length) {
       newBrowserWindow()
@@ -56,10 +60,10 @@
     console.log('app.on("window-all-closed")')
 
     /* Quit when all windows are closed, except on macOS.
-   *
-   * There, it's common for applications and their menu bar to stay active
-   * until the user quits explicitly with Cmd + Q.
-   */
+     *
+     * There, it's common for applications and their menu bar to stay active
+     * until the user quits explicitly with Cmd + Q.
+     */
 
     console.debug('process.platform', process.platform)
     switch (process.platform) {
@@ -73,6 +77,6 @@
   })
 
   /* In this file you can include the rest of your app's specific main process code.
- * You can also put them in separate files and require them here.
- */
+   * You can also put them in separate files and require them here.
+   */
 })()

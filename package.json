@@ -15,7 +15,6 @@
     "lint:yaml": "npm run grunt:yamllint",
     "lint:js": "npm run standard",
     "lint": "npm run lint:yaml && npm run lint:js",
-    "test": "exit 0",
     "prebuild": "npm run lint",
     "build": "npm run grunt:build",
     "electron": "electron .",
@@ -28,8 +27,11 @@
     "package": "npm run electron-forge:package",
     "make": "npm run electron-forge:make",
     "wdio": "wdio run wdio.conf.js",
-    "playwright:test": "playwright test",
-    "prevalidate": "npm run lint",
+    "preplaywright": "npm run build",
+    "playwright": "playwright",
+    "playwright:test": "npm run playwright -- test",
+    "playwright:test:app": "npm run playwright:test -- __tests__/playwright/app",
+    "test": "npm run playwright:test:app",
     "validate": "npm run playwright:test"
   },
   "standard": {
