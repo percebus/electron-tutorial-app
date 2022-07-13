@@ -1,16 +1,15 @@
 (() => {
   'use strict'
 
-  const { app, BrowserWindow, Menu } = require('electron')
-  const path = require('path')
-
-  const menu = require('./examples/menu/main').menu
-  const darkMode = require('./examples/dark-mode/main')
-
   console.info('main.js: loading...')
 
-  // NOTE: overrides default menu
-  Menu.setApplicationMenu(menu)
+  const { app, BrowserWindow } = require('electron')
+  const path = require('path')
+
+  const menu = require('./examples/menu/main')
+  const darkMode = require('./examples/dark-mode/main')
+
+  menu.setup()
 
   const newBrowserWindow = () => {
     const oBrowserWindow = new BrowserWindow({

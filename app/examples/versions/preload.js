@@ -1,7 +1,11 @@
 (() => {
   'use strict'
 
+  console.info('examples/versions/preload.js: loading...')
+
   function setup () {
+    console.info('examples/versions/preload setup()...')
+
     window.addEventListener('DOMContentLoaded', () => {
       const replaceText = (selector, text) => {
         const element = document.getElementById(selector)
