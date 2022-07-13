@@ -25,7 +25,7 @@
 
     test('firstWindow', async () => {
       const window = await electronApp.firstWindow()
-      await window.screenshot({ path: 'tests/screenshots/firstWindow.png' })
+      await window.screenshot({ path: 'tests/screenshots/app/firstWindow.png' })
     })
   })
 })()

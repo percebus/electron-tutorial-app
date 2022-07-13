@@ -12,6 +12,7 @@ module.exports = (grunt) => {
       }
     },
     clean: {
+      tests: 'tests',
       build: 'build'
     },
     copy: {

@@ -31,8 +31,9 @@
     "playwright": "playwright",
     "playwright:test": "npm run playwright -- test",
     "playwright:test:app": "npm run playwright:test -- __tests__/playwright/app",
+    "playwright:test:headed": "npm run playwright:test -- --headed",
     "test": "npm run playwright:test:app",
-    "validate": "npm run playwright:test"
+    "validate": "npm run playwright:test:headed"
   },
   "standard": {
     "globals": [
