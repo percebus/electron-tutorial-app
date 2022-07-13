@@ -37,11 +37,22 @@ jobs:
         run: npm run lint
       - name: build
         run: npm run grunt:build
+      - name: build.zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build
+
       - name: electron-forge package
         run: npx electron-forge package
+      - name: out.zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: out
+          path: out
+
       - name: electron-forge make
         run: npx electron-forge make
-
 # FIXME
 #     - name: out.zip
 #       uses: actions/upload-artifact@v3
