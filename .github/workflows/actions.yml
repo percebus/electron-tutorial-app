@@ -37,8 +37,10 @@ jobs:
         run: npm run lint
       - name: electron-forge make
         run: npx electron-forge make
-      - name: out.zip
-        uses: actions/upload-artifact@v3
-        with:
-          name: out
-          path: out
+
+# FIXME
+#     - name: out.zip
+#       uses: actions/upload-artifact@v3
+#       with:
+#         name: out
+#         path: out
