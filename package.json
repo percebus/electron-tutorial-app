@@ -25,7 +25,8 @@
   },
   "standard": {
     "globals": [
-      "arguments"
+      "arguments", 
+      "Notification"
     ]
   },
   "repository": {
