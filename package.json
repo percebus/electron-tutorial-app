@@ -4,16 +4,27 @@
   "description": "electron JS Getting Started Tutorial JS desktop app",
   "main": "src/app/main.js",
   "scripts": {
+    "npm:install:global": "npm install --location=global yarn @electron-forge/cli",
+    "setup": "npm run npm:install:global",
     "standard": "standard --fix src/app/**/*.js",
     "lint:js": "npm run standard",
     "lint": "npm run lint:js",
     "test": "exit 0",
     "electron": "electron .",
+    "preelectron-forge": "npm run lint",
+    "electron-forge": "electron-forge",
+    "electron-forge:start": "npm run electron-forge -- start",
+    "electron-forge:package": "npm run electron-forge -- package",
+    "electron-forge:make": "npm run electron-forge -- make",
     "prestart": "npm run lint",
-    "start": "npm run electron"
+    "start": "npm run electron-forge:start",
+    "package": "npm run electron-forge:package",
+    "make": "npm run electron-forge:make"
   },
   "standard": {
-    "globals": ["arguments"]
+    "globals": [
+      "arguments"
+    ]
   },
   "repository": {
     "type": "git",
@@ -35,7 +46,42 @@
   },
   "homepage": "https://github.com/percebus/electron-tutorial-js-app#readme",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.64",
+    "@electron-forge/maker-deb": "^6.0.0-beta.64",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.64",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.64",
+    "@electron-forge/maker-zip": "^6.0.0-beta.64",
     "electron": "^19.0.8",
     "standard": "latest"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "electron_tutorial_js_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
