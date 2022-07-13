@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  Verify:
+  Package:
     strategy:
       max-parallel: 6
       matrix:
@@ -27,13 +27,16 @@ jobs:
         run: npm run setup:ci --if-present
       - name: npm install
         run: npm ci
-      - name: npm audit
-        run: npm audit
-        continue-on-error: true
+
+# FIXME
+#     - name: npm audit
+#       run: npm audit
+#       continue-on-error: true
+
       - name: lint
         run: npm run lint
-      - name: make
-        run: npm run make
+      - name: electron-forge make
+        run: npx electron-forge make
       - name: out.zip
         uses: actions/upload-artifact@v3
         with:
