@@ -18,7 +18,7 @@ module.exports = (grunt) => {
       app: {
         files: [
           { cwd: 'src/assets/', expand: true, src: ['**'], dest: 'build' },
-          { cwd: 'src/app/', expand: true, src: ['**/*.js', '!**/*/render.js'], dest: 'build' }
+          { cwd: 'src/app/', expand: true, src: ['**/*.js', '!**/*.spec.js', '!**/*/render.js'], dest: 'build' }
         ]
       }
     },
