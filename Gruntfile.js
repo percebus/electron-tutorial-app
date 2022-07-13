@@ -6,6 +6,11 @@ module.exports = (grunt) => {
   })
 
   grunt.initConfig({
+    yamllint: {
+      github: {
+        src: ['.github/workflows/**/*.yml']
+      }
+    },
     clean: {
       build: 'build'
     },
