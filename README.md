@@ -18,13 +18,13 @@ $> npm install
 
 ## R&D
 
-### Run
+## Build
+
+### `build/`
 
 ```bash
-$> npm start
+$> npm run build
 ```
-
-## Build
 
 ### package
 
@@ -36,6 +36,12 @@ $> npm run package
 
 ```bash
 $> npm run make
+```
+
+### Run
+
+```bash
+$> npm start
 ```
 
 ## Sample

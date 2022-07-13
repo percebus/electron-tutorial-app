@@ -13,7 +13,7 @@ module.exports = (grunt) => {
       app: {
         files: [
           { cwd: 'src/assets/', expand: true, src: ['**'], dest: 'build' },
-          { cwd: 'src/app/', expand: true, src: ['**/*.js'], dest: 'build' }
+          { cwd: 'src/app/', expand: true, src: ['**/*.js', '!**/*/render.js'], dest: 'build' }
         ]
       }
     },
@@ -30,4 +30,5 @@ module.exports = (grunt) => {
   })
 
   grunt.registerTask('build', ['clean', 'copy', 'concat'])
+  grunt.registerTask('default', ['build'])
 }
