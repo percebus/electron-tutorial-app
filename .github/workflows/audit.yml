@@ -52,7 +52,7 @@ jobs:
       matrix:
         language: ['javascript']
 
-    name: 'CodeQL: ${{ matrix.javascript }}'
+    name: 'CodeQL: ${{ matrix.language }}'
     steps:
     - name: checkout
       uses: actions/checkout@v3
