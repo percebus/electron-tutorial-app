@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '16.15.X'
       - name: ls
-        run: ls
+        run: ls -la
 
       - name: setup
         run: npm run setup:ci --if-present

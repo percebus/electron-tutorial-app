@@ -23,7 +23,7 @@ jobs:
       - name: npm install
         run: npm ci
       - name: ls
-        run: ls node_modules
+        run: ls -la ./node_modules
 
       - name: npm audit
         run: npm audit
