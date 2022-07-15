@@ -17,13 +17,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: ls
-        run: ls
 
       - name: setup
         run: npm run setup:ci --if-present
       - name: npm install
         run: npm ci
+      - name: ls
+        run: ls node_modules
 
       - name: npm audit
         run: npm audit
+        continue-on-error: true
