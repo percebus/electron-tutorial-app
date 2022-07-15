@@ -10,17 +10,22 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+      - name: ls
+        run: ls -la
+
       - name: setup node
         uses: actions/setup-node@v3
         with:
           node-version: '16.15.X'
-      - name: ls
-        run: ls -la
-
       - name: setup
         run: npm run setup:ci --if-present
       - name: npm install
         run: npm ci
+      - name: ls node_modules
+        run: ls -la ./node_modules
+      - name: npm audit
+        run: npm audit
+        continue-on-error: true # XXX?
 
       - name: lint
         run: npm run lint
@@ -50,11 +55,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+
       - name: setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
       - name: setup
         run: npm run setup:ci --if-present
       - name: npm install
@@ -71,11 +76,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+
       - name: setup node
         uses: actions/setup-node@v3
         with:
           node-version: 16
-
       - name: setup
         run: npm run setup:ci --if-present
       - name: npm install
@@ -86,7 +91,7 @@ jobs:
           name: build
           path: build
       - name: ls
-        run: ls
+        run: ls # -la fails in windows
 
       - name: electron-forge make
         run: npm run make
@@ -106,3 +111,35 @@ jobs:
 #         name: playwright-report
 #         path: playwright-report/
 #         retention-days: 30
+
+
+  CodeQL:
+#   if: github.ref == 'refs/heads/main' # TODO?
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['javascript']
+
+    name: 'CodeQL: ${{ matrix.language }}'
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: setup CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+    - name: build.zip
+      uses: actions/download-artifact@v3
+      with:
+        name: build
+        path: build
+
+    - name: CodeQL
+      uses: github/codeql-action/analyze@v2
