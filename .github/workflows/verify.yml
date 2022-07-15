@@ -43,7 +43,7 @@ jobs:
       max-parallel: 6
       matrix:
         os: [ubuntu-latest, macOS-latest, windows-latest]
-        node: ['16.X', '18.X']
+        node: [16, 18]
     runs-on: ${{ matrix.os }}
     name: build @ node:${{ matrix.node }}@${{ matrix.os }}
     steps:
