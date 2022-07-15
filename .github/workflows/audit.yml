@@ -9,6 +9,7 @@ on:
 
 jobs:
   npm_audit:
+    name: npm audit
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -28,3 +29,42 @@ jobs:
       - name: npm audit
         run: npm audit
         continue-on-error: true
+
+      - name: build
+        run: npm run build
+      - name: build.zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build
+
+
+  CodeQL:
+    name: CodeQL
+    needs: npm_audit
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['javascript', 'yaml']
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: setup CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+    - name: build.zip
+      uses: actions/download-artifact@v3
+      with:
+        name: build
+        path: build
+
+    - name: CodeQL
+      uses: github/codeql-action/analyze@v2
