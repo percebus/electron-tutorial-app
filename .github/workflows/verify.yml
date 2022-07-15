@@ -1,0 +1,63 @@
+name: Continuous Integration
+on: 
+  push:
+  schedule:
+    - cron: '* 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.15.X'
+      - name: ls
+        run: ls
+
+      - name: setup
+        run: npm run setup:ci --if-present
+      - name: npm install
+        run: npm ci
+
+      - name: lint
+        run: npm run lint
+
+      - name: react build
+        run: npx react-scripts build
+      - name: build.zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build
+
+      - name: electron-forge package
+        run: npx electron-forge package      
+
+
+  builds:
+    needs: build
+    strategy:
+      max-parallel: 6
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+        node: ['16.X', '18.X']
+    runs-on: ${{ matrix.os }}
+    name: build @ node:${{ matrix.node }}@${{ matrix.os }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: setup
+        run: npm run setup:ci --if-present
+      - name: npm install
+        run: npm ci
+
+      - name: react build
+        run: npm run build

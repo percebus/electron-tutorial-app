@@ -2,9 +2,7 @@
 
 SRC: [Quick Start](https://www.electronjs.org/docs/latest/tutorial/quick-start)
 
-[![Continuous Integration](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/actions.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/actions.yml)
-
-[![`playwright test`](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/playwright.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/playwright.yml)
+[![Continuous Integration](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml) [![`playwright test`](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/playwright.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/playwright.yml)
 
 ## History
 
@@ -26,21 +24,23 @@ $> npm install
 
 ## R&D
 
-## Build
+### Build
 
-### `build/`
+#### `build/`
 
 ```bash
 $> npm run build
 ```
 
-### package
+#### `out/`
+
+##### `package`
 
 ```bash
 $> npm run package
 ```
 
-### make
+##### `make`
 
 ```bash
 $> npm run make
