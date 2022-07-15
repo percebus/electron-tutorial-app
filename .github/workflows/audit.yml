@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: 'dependency review'
+        uses: actions/dependency-review-action@v2
 
       - name: setup
         run: npm run setup:ci --if-present
