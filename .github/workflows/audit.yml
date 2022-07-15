@@ -16,14 +16,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: 'dependency review'
-        uses: actions/dependency-review-action@v2
 
       - name: setup
         run: npm run setup:ci --if-present
       - name: npm install
         run: npm ci
-      - name: ls
+      - name: ls node_modules
         run: ls -la ./node_modules
 
       - name: npm audit
