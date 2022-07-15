@@ -2,7 +2,7 @@
 
 SRC: [Quick Start](https://www.electronjs.org/docs/latest/tutorial/quick-start)
 
-[![Continuous Integration](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml) [![node_modules](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml) [![`playwright test`](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/playwright.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/playwright.yml)
+[![Continuous Integration](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml) [![node_modules](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml)
 
 ## History
 
