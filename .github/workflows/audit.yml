@@ -1,4 +1,4 @@
-name: npm audit
+name: audits
 on:
   push:
     branches: [main, master]
@@ -51,7 +51,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ['javascript', 'yaml']
+        language: ['javascript']
 
     steps:
     - name: checkout
