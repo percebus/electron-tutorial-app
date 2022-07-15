@@ -9,7 +9,7 @@ on:
 
 jobs:
   playwright:
-    name: *.playwright.dev
+    name: 'HTTP(S)://*.playwright.dev/* tests'
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
