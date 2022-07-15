@@ -2,7 +2,7 @@
 
 SRC: [Quick Start](https://www.electronjs.org/docs/latest/tutorial/quick-start)
 
-[![Continuous Integration](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml) [![node_modules](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml)
+[![Continuous Integration](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/always.yml) [![node_modules](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml)
 
 ## History
 
@@ -18,11 +18,15 @@ $> npm run setup
 
 ### Dependencies
 
+[![node_modules](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml)
+
 ```bash
 $> npm install
 ```
 
 ## R&D
+
+[![Continuous Integration](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/always.yml)
 
 ### Build
 
