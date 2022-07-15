@@ -62,7 +62,8 @@ jobs:
       - name: build
         run: npm run build
 
-  verify:
+
+  verify: # TODO? RENAME? validate?
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -75,8 +76,6 @@ jobs:
 
       - name: setup
         run: npm run setup:ci --if-present
-      - name: playwright install
-        run: npx playwright install --with-deps
       - name: npm install
         run: npm install
       - name: build.zip
@@ -96,11 +95,12 @@ jobs:
 #         name: out
 #         path: out
 
-      - name: playwright test
-        run: npx playwright test __tests__/playwright/app
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+# FIXME
+#     - name: playwright test
+#       run: npx playwright test __tests__/playwright/app
+#     - uses: actions/upload-artifact@v2
+#       if: always()
+#       with:
+#         name: playwright-report
+#         path: playwright-report/
+#         retention-days: 30

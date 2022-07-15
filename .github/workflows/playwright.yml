@@ -16,10 +16,10 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: 16
+    - name: setup
+      run: npm run setup:ci --if-present
     - name: npm install
       run: npm ci
-    - name: playwright install
-      run: npx playwright install --with-deps
     - name: playwright test
       run: npx playwright test __tests__/playwright/dev
     - uses: actions/upload-artifact@v2
