@@ -1,10 +1,10 @@
 # `electron-tutorial-js-app`
 
-SRC: [Quick Start](https://www.electronjs.org/docs/latest/tutorial/quick-start)
-
-[![Continuous Integration](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml) [![dependency-review](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml)
+[![verify](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml) [![dependency-review](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml)
 
 ## History
+
+SRC: [Quick Start](https://www.electronjs.org/docs/latest/tutorial/quick-start)
 
 See [HISTORY.md](./HISTORY.md)
 
@@ -26,7 +26,7 @@ $> npm install
 
 ## R&D
 
-[![Continuous Integration](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml)
+[![verify](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml)
 
 ### Build
 
