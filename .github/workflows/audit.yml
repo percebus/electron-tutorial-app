@@ -1,9 +1,11 @@
 name: audits
 on:
-  push:
-    branches: [main, master]
   schedule:
     - cron: '* 0 * * *'
+  push:
+    branches:
+      - main
+      - master
 
 jobs:
   npm_audit:

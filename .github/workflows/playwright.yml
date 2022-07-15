@@ -1,12 +1,15 @@
 name: playwright
 on:
-  push:
-    branches: [main, master]
   schedule:
     - cron: '* 0 * * *'
+  push:
+    branches:
+      - main
+      - master
 
 jobs:
   playwright:
+    name: *.playwright.dev
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:

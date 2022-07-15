@@ -38,6 +38,7 @@ jobs:
 
 
   builds:
+    if: github.ref == 'refs/heads/main'
     needs: build
     strategy:
       max-parallel: 6
@@ -64,6 +65,7 @@ jobs:
 
 
   verify: # TODO? RENAME? validate?
+    if: github.ref == 'refs/heads/main' # XXX?
     needs: build
     runs-on: ubuntu-latest
     steps:
