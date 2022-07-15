@@ -5,7 +5,7 @@ on:
     - cron: '* 0 * * *'
 
 jobs:
-  build:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -19,6 +19,8 @@ jobs:
 
       - name: setup
         run: npm run setup:ci --if-present
+      - name: playwright install
+        run: npx playwright install --with-deps
       - name: npm install
         run: npm ci
 
@@ -36,9 +38,18 @@ jobs:
       - name: electron-forge package
         run: npx electron-forge package      
 
+      - name: playwright test
+        run: npx playwright test __tests__/playwright/app
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
 
   builds:
-    needs: build
+    needs: verify
     strategy:
       max-parallel: 6
       matrix:
@@ -61,3 +72,35 @@ jobs:
 
       - name: build
         run: npm run build
+
+  electron:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: setup
+        run: npm run setup:ci --if-present
+      - name: npm install
+        run: npm install
+      - name: build.zip
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+      - name: ls
+        run: ls
+
+      - name: electron-forge make
+        run: npm run make
+# FIXME
+#     - name: out.zip
+#       uses: actions/upload-artifact@v3
+#       with:
+#         name: out
+#         path: out
