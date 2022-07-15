@@ -40,7 +40,6 @@ jobs:
 
 
   CodeQL:
-    name: CodeQL
     needs: npm_audit
     runs-on: ubuntu-latest
     permissions:
@@ -53,6 +52,7 @@ jobs:
       matrix:
         language: ['javascript']
 
+    name: 'CodeQL: ${{ matrix.javascript }}'
     steps:
     - name: checkout
       uses: actions/checkout@v3
