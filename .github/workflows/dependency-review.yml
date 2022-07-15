@@ -1,4 +1,4 @@
-name: pull request
+name: dependency-review
 
 # "This run was triggered by the "push" event, which is unsupported. 
 #  Please ensure you are using the "pull_request" event for this workflow."
