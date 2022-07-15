@@ -26,7 +26,7 @@
     "build": "npm run grunt:build",
     "postbuild": "npm run LICENSES",
     "electron": "electron .",
-    "preelectron-forge": "npm run build",
+    "preelectron:forge": "npm run build",
     "electron:forge": "electron-forge",
     "electron:forge:start": "npm run electron:forge -- start",
     "electron:forge:package": "npm run electron:forge -- package",
