@@ -115,7 +115,7 @@ jobs:
 #         retention-days: 30
 
 
-  Playwright:
+  playwright:
     if: github.ref == 'refs/heads/main'
     name: 'HTTP(S)://*.playwright.dev/* tests'
     timeout-minutes: 60
@@ -143,7 +143,7 @@ jobs:
 #       retention-days: 30
 
 
-  CodeQL:
+  codeQL:
 #   if: github.ref == 'refs/heads/main' # TODO?
     needs: build
     runs-on: ubuntu-latest
