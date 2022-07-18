@@ -1,6 +1,6 @@
 # `electron-tutorial-js-app`
 
-[![verify](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml) [![dependency review](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml)
+[![verify](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/always.yml) [![dependency review](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/pull_request.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/pull_request.yml)
 
 ## History
 
@@ -18,7 +18,7 @@ $> npm run setup
 
 ### Dependencies
 
-[![dependency review](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/dependency-review.yml)
+[![dependency review](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/pull_request.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/pull_request.yml)
 
 ```bash
 $> npm install
@@ -26,7 +26,7 @@ $> npm install
 
 ## R&D
 
-[![verify](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/verify.yml)
+[![verify](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/electron-tutorial-js-app/actions/workflows/always.yml)
 
 ### Build
 
