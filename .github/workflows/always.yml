@@ -1,4 +1,4 @@
-name: verify
+name: Verify
 on: 
   push:
   schedule:
@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -21,7 +22,7 @@ jobs:
         run: npm run setup:ci --if-present
       - name: npm install
         run: npm ci
-      - name: node_modules
+      - name: ls node_modules
         run: ls -la ./node_modules
       - name: npm audit
         run: npm audit
@@ -51,7 +52,7 @@ jobs:
         os: [ubuntu-latest, macOS-latest, windows-latest]
         node: [16, 18]
     runs-on: ${{ matrix.os }}
-    name: build @ node:${{ matrix.node }}@${{ matrix.os }}
+    name: Build @ node:${{ matrix.node }}@${{ matrix.os }}
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -71,6 +72,7 @@ jobs:
 
   verify: # TODO? RENAME? validate?
     if: github.ref == 'refs/heads/main' # XXX?
+    name: Verify
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -113,13 +115,14 @@ jobs:
 #         retention-days: 30
 
 
-  playwright:
+  Playwright:
     if: github.ref == 'refs/heads/main'
     name: 'HTTP(S)://*.playwright.dev/* tests'
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
     - uses: actions/setup-node@v2
       with:
         node-version: 16
@@ -127,6 +130,7 @@ jobs:
       run: npm run setup:ci --if-present
     - name: npm install
       run: npm ci
+
     - name: playwright test
       run: npx playwright test __tests__/playwright/dev
 
