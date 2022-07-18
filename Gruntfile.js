@@ -35,6 +35,9 @@ module.exports = (grunt) => {
     }
   })
 
+  grunt.registerTask('lint:yaml', ['yamllint'])
+  grunt.registerTask('lint', ['lint:yaml'])
+
   grunt.registerTask('build', ['clean', 'copy', 'concat'])
   grunt.registerTask('default', ['build'])
 }
