@@ -12,7 +12,7 @@
 
   menu.setup()
 
-  const newBrowserWindow = () => {
+  function newBrowserWindow () {
     console.log('newBrowserWindow()')
 
     const oBrowserWindow = new BrowserWindow({
