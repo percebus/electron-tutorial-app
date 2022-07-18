@@ -1,4 +1,4 @@
-name: dependency review
+name: Dependency Review
 
 # "This run was triggered by the "push" event, which is unsupported. 
 #  Please ensure you are using the "pull_request" event for this workflow."
@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   dependency-review:
-    name: Dependency Review
+    name: dependency review
     runs-on: ubuntu-latest
     steps:
       - name: checkout
